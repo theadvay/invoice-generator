@@ -32,7 +32,9 @@ loads. Your invoice never leaves your device — it is saved to your own browser
 - **Logo upload** — automatically downscaled and stored locally.
 - **Auto-save** — every keystroke is saved in your browser; close the tab and come
   back later.
-- **Auto invoice numbers** — sequential `INV-2026-001` style, incrementing per year.
+- **Auto invoice numbers** — sequential `INV-2026-001` style, counted per browser and
+  reset each year. It only advances when you press *New invoice*, never on a page
+  load, and the field stays freely editable if you use your own series.
 - **Print-perfect output** — dedicated `@page` A4 rules, no browser headers, no
   page-break inside table rows.
 - **Works offline** — save the page and it still runs. No fonts or scripts fetched
