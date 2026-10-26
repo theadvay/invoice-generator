@@ -127,18 +127,37 @@
   var STORAGE_KEY = 'invoice-generator-v1';
   var COUNTER_KEY = 'invoice-generator-counter';
 
-  function nextInvoiceNumber() {
+  /* The invoice number is a required field on every invoice, so the app keeps a
+     local counter to save you typing it. It is only bumped when you actually
+     start a new invoice — never as a side effect of loading the page. */
+
+  function formatInvoiceNumber(year, n) {
+    return 'INV-' + year + '-' + String(n).padStart(3, '0');
+  }
+
+  function readCounter() {
     var year = new Date().getFullYear();
-    var n = 1;
+    var n = 0;
     try {
       var raw = localStorage.getItem(COUNTER_KEY);
       if (raw) {
         var parsed = JSON.parse(raw);
-        if (parsed && parsed.year === year) n = (parsed.n || 0) + 1;
+        if (parsed && parsed.year === year) n = parsed.n || 0;
       }
-      localStorage.setItem(COUNTER_KEY, JSON.stringify({ year: year, n: n }));
-    } catch (e) { /* private mode — fall back to 1 */ }
-    return 'INV-' + year + '-' + String(n).padStart(3, '0');
+    } catch (e) { /* private mode — start from zero */ }
+    return { year: year, n: n };
+  }
+
+  function issueInvoiceNumber() {
+    var c = readCounter();
+    var n = c.n + 1;
+    try { localStorage.setItem(COUNTER_KEY, JSON.stringify({ year: c.year, n: n })); } catch (e) { /* ignore */ }
+    return formatInvoiceNumber(c.year, n);
+  }
+
+  function peekInvoiceNumber() {
+    var c = readCounter();
+    return formatInvoiceNumber(c.year, c.n + 1);
   }
 
   function blankState() {
@@ -147,7 +166,7 @@
       business: { name: '', address: '', email: '', phone: '', taxid: '', logo: '' },
       client: { name: '', address: '', email: '', phone: '', taxid: '' },
       meta: {
-        number: nextInvoiceNumber(),
+        number: '',
         currency: 'INR',
         date: today,
         due: addDays(today, 15),
@@ -164,6 +183,7 @@
   }
 
   var state = blankState();
+  var hadSavedState = false;
 
   function save() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* ignore quota */ }
@@ -175,6 +195,7 @@
       if (!raw) return;
       var s = JSON.parse(raw);
       if (!s || typeof s !== 'object') return;
+      hadSavedState = true;
       state = {
         business: Object.assign(blankState().business, s.business || {}),
         client: Object.assign(blankState().client, s.client || {}),
@@ -521,6 +542,7 @@
     // keep the business profile, it rarely changes
     fresh.business = biz;
     fresh.business.logo = logo;
+    fresh.meta.number = issueInvoiceNumber();
     state = fresh;
     fillForm();
     refresh();
@@ -546,7 +568,7 @@
         taxid: '29AACCN1234B1Z9'
       },
       meta: {
-        number: state.meta.number || 'INV-' + new Date().getFullYear() + '-001',
+        number: state.meta.number || peekInvoiceNumber(),
         currency: 'INR',
         date: today,
         due: addDays(today, 15),
@@ -619,6 +641,9 @@
   window.addEventListener('beforeprint', renderSheet);
 
   load();
+  // A brand-new visitor gets the next number from the counter; a returning one
+  // keeps whatever number was saved with their draft.
+  if (!state.meta.number) state.meta.number = hadSavedState ? peekInvoiceNumber() : issueInvoiceNumber();
   fillForm();
   renderSheet();
   window.addEventListener('load', fitSheet);
