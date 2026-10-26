@@ -3,16 +3,115 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Invoice Generator — free, private, instant PDF</title>
-<meta name="description" content="A free invoice generator that runs entirely in your browser. Create GST-ready invoices, add your logo, and save a professional PDF in seconds. No sign-up, no data leaves your device.">
+<title>Free Invoice Generator — Create &amp; Download a GST Invoice PDF</title>
+<meta name="description" content="Free invoice generator for India and beyond. Build a GST invoice with CGST/SGST or IGST and download a print-perfect A4 PDF. No sign-up, no watermark.">
+<link rel="canonical" href="https://theadvay.github.io/invoice-generator/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Advay">
 <meta name="theme-color" content="#4f46e5">
-<meta property="og:title" content="Invoice Generator — free, private, instant PDF">
-<meta property="og:description" content="Create professional invoices in seconds. GST-ready, no sign-up, works offline.">
+
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Cpath d='M20 16h18l8 8v24a2 2 0 0 1-2 2H20a2 2 0 0 1-2-2V18a2 2 0 0 1 2-2z' fill='%23fff'/%3E%3Cpath d='M38 16l8 8h-8z' fill='%23c7d2fe'/%3E%3Cpath d='M25 32h14M25 39h14M25 46h9' stroke='%234f46e5' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:site_name" content="Invoice Generator">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://theadvay.github.io/invoice-generator/">
+<meta property="og:title" content="Free Invoice Generator — create a GST invoice PDF in seconds">
+<meta property="og:description" content="GST-ready invoice maker that runs entirely in your browser. CGST/SGST or IGST, 8 currencies, amount in words, instant A4 PDF. Free, no sign-up, no watermark.">
+<meta property="og:image" content="https://theadvay.github.io/invoice-generator/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Invoice Generator editor next to a finished A4 GST invoice">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Invoice Generator — create a GST invoice PDF in seconds">
+<meta name="twitter:description" content="GST-ready invoice maker that runs entirely in your browser. Free, no sign-up, no watermark.">
+<meta name="twitter:image" content="https://theadvay.github.io/invoice-generator/assets/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://theadvay.github.io/invoice-generator/#website",
+      "url": "https://theadvay.github.io/invoice-generator/",
+      "name": "Invoice Generator",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://theadvay.github.io/invoice-generator/#app",
+      "name": "Invoice Generator",
+      "url": "https://theadvay.github.io/invoice-generator/",
+      "description": "A free browser-based invoice generator that creates GST-ready invoices (CGST/SGST or IGST) and downloads them as a print-perfect A4 PDF. No sign-up, no server, no watermark.",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Invoicing",
+      "operatingSystem": "Any device with a modern web browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "featureList": [
+        "GST invoices with CGST + SGST or IGST breakdown",
+        "Per-item tax rates and GSTIN fields for both parties",
+        "Discounts as a percentage or a flat amount",
+        "Amount in words in Indian or international numbering",
+        "Eight currencies including INR, USD, EUR and GBP",
+        "Logo upload and automatic draft saving",
+        "A4 PDF export through the browser print dialog",
+        "Works offline with no data leaving the device"
+      ],
+      "license": "https://github.com/theadvay/invoice-generator/blob/main/LICENSE",
+      "isPartOf": { "@id": "https://theadvay.github.io/invoice-generator/#website" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://theadvay.github.io/invoice-generator/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this invoice generator really free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is free with no account, no invoice limit and no watermark. The source code is open under the MIT licence, so there is no paid tier waiting behind the button." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does my invoice data get uploaded anywhere?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Every calculation and the PDF generation happen inside your browser. There is no backend, no analytics and no third-party script, so client names, addresses and amounts never leave your device. Your draft is stored only in your own browser's local storage." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I create a GST invoice with CGST and SGST?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose the CGST + SGST tax mode for an intra-state supply or IGST for an inter-state supply, set a tax rate on each line item, and add GSTINs for both parties. The invoice shows the split tax lines and the taxable value after discount." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I download the invoice as a PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Press Download PDF and pick Save as PDF as the destination in your browser's print dialog. The page is already laid out as a single A4 sheet with no browser headers or footers, so what you see is what prints." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work offline?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The page loads no fonts, scripts or images from the internet, so once it is open it keeps working without a connection. You can also save the page to your device and open it later." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use it for invoices outside India?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose one of eight currencies and set the tax mode to no tax or a single tax line. Amounts are grouped in the lakh/crore style for INR and in the international style for other currencies." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<a class="skip-link" href="#app">Skip to the invoice generator</a>
 
 <header class="app-header">
   <div class="brand">
@@ -37,7 +136,20 @@
   </div>
 </header>
 
-<main class="app">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <h1 id="hero-title">Free invoice generator — make a GST invoice and download the PDF in seconds</h1>
+    <p class="hero-sub">Fill the form, watch the A4 invoice build itself, then print it to PDF. No sign-up, no watermark, no upload — your client's data never leaves this browser.</p>
+    <ul class="hero-points">
+      <li>GST-ready: CGST + SGST or IGST</li>
+      <li>8 currencies, lakh/crore or international grouping</li>
+      <li>Works offline, saves your draft automatically</li>
+      <li>No account, no invoice limit</li>
+    </ul>
+  </div>
+</section>
+
+<main class="app" id="app">
 
   <!-- ============ EDITOR ============ -->
   <section class="editor" aria-label="Invoice details">
@@ -219,6 +331,115 @@
 
 </main>
 
-<script src="app.js"></script>
+<section class="content" id="features">
+  <div class="wrap">
+    <h2>Everything a small business needs on an invoice</h2>
+    <p class="lede">Most free invoice tools want an account, put your client's data on their server and stamp a watermark on the PDF. This one is three files of plain HTML, CSS and JavaScript that run on your own machine.</p>
+
+    <div class="feature-grid">
+      <article class="feature">
+        <h3>GST without the guesswork</h3>
+        <p>Set a rate per line item and pick CGST + SGST for an intra-state supply or IGST for inter-state. The invoice prints the split tax lines, the taxable value after discount and both GSTINs.</p>
+      </article>
+      <article class="feature">
+        <h3>Discounts that stay correct</h3>
+        <p>A percentage or a flat discount is spread across the line items before tax is charged, which is how GST wants it — no more totals that fail a CA's check.</p>
+      </article>
+      <article class="feature">
+        <h3>Amount in words, automatically</h3>
+        <p>Every invoice carries the total in words: <em>One Lakh Two Thousand Eleven Rupees only</em> for INR, or <em>One Hundred and Two Thousand and Eleven Dollars only</em> for USD.</p>
+      </article>
+      <article class="feature">
+        <h3>Eight currencies, correct grouping</h3>
+        <p>INR groups in lakh and crore, everything else in thousands and millions. Change the currency and every figure, including the words, follows.</p>
+      </article>
+      <article class="feature">
+        <h3>Part payments and overdue</h3>
+        <p>Record what you have already been paid and the invoice shows the balance due plus a Paid, Partially paid, Unpaid or Overdue badge, worked out from the due date.</p>
+      </article>
+      <article class="feature">
+        <h3>Print-perfect A4</h3>
+        <p>A dedicated A4 print stylesheet means no browser headers, no clipped columns and no page break in the middle of a line item. What you see is what the client gets.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="content alt" id="how-it-works">
+  <div class="wrap">
+    <h2>How to make an invoice in three steps</h2>
+    <ol class="steps">
+      <li>
+        <h3>Fill in the two parties</h3>
+        <p>Your business name, address and GSTIN, then the client's. Your side is remembered in this browser, so a repeat invoice starts half finished.</p>
+      </li>
+      <li>
+        <h3>Add the line items</h3>
+        <p>Describe the work, then the quantity, the rate and the tax rate for each line. Add a discount and any amount already paid at the bottom of the form.</p>
+      </li>
+      <li>
+        <h3>Press Download PDF</h3>
+        <p>The preview on the right is the actual sheet. Choose <strong>Save as PDF</strong> in the print dialog and the invoice is ready to email.</p>
+      </li>
+    </ol>
+    <p class="content-link">Want the detail behind each field? Read the <a href="how-to-create-an-invoice.html">step-by-step guide to creating an invoice</a>, or the <a href="gst-invoice-format-guide.html">GST invoice format guide</a> for the particulars Indian tax rules actually require.</p>
+  </div>
+</section>
+
+<section class="content" id="faq">
+  <div class="wrap narrow">
+    <h2>Frequently asked questions</h2>
+
+    <details>
+      <summary>Is this invoice generator really free?</summary>
+      <p>Yes. There is no account, no invoice limit and no watermark. The source is open under the MIT licence, so there is no paid tier hidden behind the download button.</p>
+    </details>
+
+    <details>
+      <summary>Does my invoice data get uploaded anywhere?</summary>
+      <p>No. Every calculation and the PDF generation happen inside your browser. There is no backend, no analytics and no third-party script, so client names, addresses and amounts never leave your device. Your draft is stored only in your own browser's local storage.</p>
+    </details>
+
+    <details>
+      <summary>Can I create a GST invoice with CGST and SGST?</summary>
+      <p>Yes. Choose the CGST + SGST tax mode for an intra-state supply or IGST for an inter-state supply, set a tax rate on each line item, and add GSTINs for both parties. The invoice shows the split tax lines and the taxable value after discount.</p>
+    </details>
+
+    <details>
+      <summary>How do I download the invoice as a PDF?</summary>
+      <p>Press <strong>Download PDF</strong> and pick <strong>Save as PDF</strong> as the destination in your browser's print dialog. The page is already laid out as a single A4 sheet with no browser headers or footers, so what you see is what prints.</p>
+    </details>
+
+    <details>
+      <summary>Does it work offline?</summary>
+      <p>Yes. The page loads no fonts, scripts or images from the internet, so once it is open it keeps working without a connection. You can also save the page to your device and open it later.</p>
+    </details>
+
+    <details>
+      <summary>Can I use it for invoices outside India?</summary>
+      <p>Yes. Choose one of eight currencies and set the tax mode to no tax or a single tax line. Amounts are grouped in the lakh/crore style for INR and in the international style for other currencies.</p>
+    </details>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <strong>Invoice Generator</strong>
+      <p>A free, open-source invoice maker that runs entirely in your browser. MIT licensed.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="./">Invoice generator</a>
+      <a href="how-to-create-an-invoice.html">How to create an invoice</a>
+      <a href="gst-invoice-format-guide.html">GST invoice format</a>
+      <a href="https://github.com/theadvay/invoice-generator">Source on GitHub</a>
+    </nav>
+  </div>
+  <div class="wrap">
+    <p class="footer-legal">© 2026 Advay. General information only, not legal or tax advice — confirm your own GST requirements with a professional.</p>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
 </body>
 </html>
