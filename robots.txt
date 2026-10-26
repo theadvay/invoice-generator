@@ -1,0 +1,15 @@
+# Invoice Generator — https://theadvay.github.io/invoice-generator/
+# Everything here is public and indexable. Nothing to keep out.
+
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+# Explicitly welcome the main crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://theadvay.github.io/invoice-generator/sitemap.xml
